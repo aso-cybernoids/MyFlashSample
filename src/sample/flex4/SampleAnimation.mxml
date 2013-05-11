@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+               xmlns:s="library://ns.adobe.com/flex/spark" 
+               xmlns:mx="library://ns.adobe.com/flex/halo">
+	
+	<fx:Declarations>
+		<s:Animate id="animate1" target="{lblTitle1}">
+			<s:SimpleMotionPath property="x" valueFrom="0" valueTo="480" />
+		</s:Animate>
+		<s:Animate id="animate2" target="{lblTitle2}">
+			<s:SimpleMotionPath property="x" valueBy="50" />
+			<s:SimpleMotionPath property="y" valueTo="260" />
+			<s:SimpleMotionPath property="width" valueFrom="150" valueTo="50" /> 
+		</s:Animate>
+		<s:Move id="animate3" target="{lblTitle2}" duration="1000"
+            xFrom="0" xTo="480"
+            yFrom="135" yTo="270" />
+		<s:Resize id="animate4" target="{btnStart}"
+            widthFrom="100" widthTo="200"
+            heightFrom="50" heightTo="200" />
+		<s:Resize id="animate5" target="{btnStart}"
+            widthFrom="200" widthTo="100"
+            heightFrom="200" heightTo="50" />
+		<s:Fade
+			id="animate6" target="{btnContinue}"
+			alphaFrom="1" alphaTo="0.1"
+			/>
+		<s:Fade
+			id="animate7" target="{btnContinue}"
+			alphaFrom="0.1" alphaTo="1"
+			/>
+		
+		
+		<s:Parallel id="animate8" target="{fltGlowTitle}">
+			<s:children>
+				<s:Animate>
+					<s:SimpleMotionPath property="strength" valueFrom="2" valueTo="16" />
+				</s:Animate>
+				<s:Animate>
+					<s:SimpleMotionPath property="blurX" valueFrom="2" valueTo="16" />
+				</s:Animate>
+			</s:children>
+		</s:Parallel>
+		
+		<s:Sequence id="animate9" target="{fltGlowTitle}">
+			<s:children>
+				<s:Animate>
+					<s:SimpleMotionPath property="strength" valueFrom="16" valueTo="2" />
+				</s:Animate>
+				<s:Animate>
+					<s:SimpleMotionPath property="blurY" valueFrom="2" valueTo="16" />
+				</s:Animate>
+			</s:children>
+		</s:Sequence>
+	</fx:Declarations>
+	
+	<s:Label 
+		id="lblTitle1"
+		text="ANDROID"
+		x="50" y="100" scaleX="4" scaleY="4" 
+		mouseDown="animate1.play()"
+	>
+		<s:filters>
+			<s:DropShadowFilter />
+		</s:filters>		
+	</s:Label>	
+	
+	<s:Label 
+		id="lblTitle2"
+		text="BREEDER"
+		x="45" y="180" scaleX="4" scaleY="4" 
+		mouseDown="animate3.play()"
+		rollOver="animate8.play()"
+		rollOut="animate9.play()"
+	>
+		<s:filters>
+			<s:GlowFilter id="fltGlowTitle" blurX="32" blurY="32" strength="2" color="0xffffff" />
+		</s:filters>		
+	
+	</s:Label>
+	
+	<s:Button 
+		id="btnContinue"
+		fontSize="23"
+		chromeColor="#EC9B9B"
+		label="continue !" 
+		horizontalCenter="0" 
+		verticalCenter="170" 
+		width="100" height="50" 
+		rollOver="animate6.play()"
+		rollOut="animate7.play()"
+	/>
+	<s:Button 
+		id="btnStart"
+		fontSize="23"
+		chromeColor="#EC9B9B"
+		label="start !" 
+		horizontalCenter="0" 
+		verticalCenter="100" 
+		width="100" height="50" 
+		rollOver="animate4.play()"
+		rollOut="animate5.play()"
+	/>
+</s:Application>

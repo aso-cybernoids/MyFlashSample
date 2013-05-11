@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+               xmlns:s="library://ns.adobe.com/flex/spark" 
+               xmlns:mx="library://ns.adobe.com/flex/halo">
+	
+	<!--適当なレイアウト設定-->
+	<s:Group width="100%" height="100%" top="10" right="10" left="10" bottom="10">
+		<s:Label text="a1"/>
+		<s:Label text="a2"/>
+		<s:Label text="a3"/>
+		<s:Label text="a4"/>
+	</s:Group>
+	
+	<s:VGroup width="100" height="100" verticalCenter="0" horizontalCenter="0">
+		
+		<s:Label text="b1"/>
+		<s:Label text="b2"/>
+		<s:Label text="b3"/>
+		<s:Label text="b4"/>
+	</s:VGroup>
+	
+	<s:HGroup bottom="0">
+		<s:Label text="c1"/>
+		<s:Label text="c2"/>
+		<s:Label text="c3"/>
+		<s:Label text="c4"/>
+	</s:HGroup>
+	
+	<s:TileGroup verticalCenter="0">
+		<s:Label text="d1"/>
+		<s:Label text="d2"/>
+		<s:Label text="d3"/>
+		<s:Label text="d4"/>
+	</s:TileGroup>
+</s:Application>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+               xmlns:s="library://ns.adobe.com/flex/spark" 
+               xmlns:mx="library://ns.adobe.com/flex/halo" currentState="OKCancel">
+	
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:states>
+		<s:State name="OKCancel"/>
+		<s:State name="NoButton"/>
+		<s:State name="OKButton"/>
+		<s:State name="Full"/>
+	</s:states>
+	
+<s:Panel 
+			   backgroundColor="0xF8F8F8"
+			   backgroundColor.Full="0xffffff"
+
+			   width="200" height="200"  cornerRadius="5" minHeight="200" minWidth="200"
+			   creationPolicy="all"
+			    creationComplete="trace('panel')">
+
+	
+	<fx:Script>
+		<![CDATA[
+		import flash.events.MouseEvent;
+		import mx.core.IVisualElement;
+		import spark.components.Button;
+		import spark.components.Group;
+		import spark.components.Panel;
+		
+		override public function get initialized():Boolean
+		{
+			if (_grpContent == null) return false; 
+			if (_grpResizeBox == null) return false; 
+			if (_btnOK== null) return false; 
+			if (_btnCancel== null) return false; 
+			if (_btnDelete== null) return false; 
+			return true;
+		}
+		public function get grpResizeBox():Group
+		{
+			return _grpResizeBox;
+		}
+		public function get grpContent():Group
+		{
+			return _grpContent;
+		}
+
+		
+		
+
+		public function get btnOK():Button
+		{
+			return _btnOK;
+		}
+		public function get btnDelete():Button
+		{
+			return _btnDelete;
+		}
+
+		public function get btnCancel():Button
+		{
+			return _btnCancel;
+		}
+		
+		override public function addElement(child:IVisualElement):IVisualElement {
+			return grpContent.addElement(child);
+		}
+		]]>
+	</fx:Script>
+	
+
+	<s:Button id="_btnDelete" label="x" width="20" right="10"  top="-27"  creationComplete="trace('del')"/>
+	<s:Group id="_grpContent"  creationComplete="trace('con')" left="5" right="5" top="5" bottom="40"  bottom.NoButton="5" left.Full="0" right.Full="0" top.Full="0" bottom.Full="0"  />
+	<s:Button id="_btnOK" label="ok"  creationComplete="trace('ok')" bottom="10" horizontalCenter.OKCancel="-55" horizontalCenter.OKButton="3" includeIn="OKButton,OKCancel"/>
+	<s:Button id="_btnCancel" label="cancel" bottom="10" horizontalCenter="35" includeIn="OKCancel"/>
+	<s:Group x="{width-2}" y="{height-3-30}" id="_grpResizeBox" buttonMode="true">
+			<s:Path >
+				<s:data>
+					<![CDATA[
+					M 0 0
+					L -10 0
+					L 0 -10
+					Z
+					]]>
+				</s:data>
+				<s:fill>
+					<s:SolidColor color="#C0C0C0"/>
+				</s:fill>
+				<s:stroke>
+					<s:SolidColorStroke color="#A5A5A5"/>
+				</s:stroke>
+			</s:Path>
+		</s:Group>
+</s:Panel>
+
+</s:Application>

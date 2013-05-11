@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<s:WindowedApplication xmlns:fx="http://ns.adobe.com/mxml/2009"
+                       xmlns:s="library://ns.adobe.com/flex/spark"
+                       xmlns:mx="library://ns.adobe.com/flex/mx"
+					   click="onComplete()">
+	<fx:Script>
+		<![CDATA[
+import flash.display.NativeWindow;
+import flash.display.NativeWindowInitOptions;
+import flash.display.NativeWindowSystemChrome;
+import flash.display.NativeWindowType;
+import mx.core.Window;
+import sample.flash.SampleGraphics;
+		public function onComplete():void 
+		{
+			
+			
+		}
+		
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+</s:WindowedApplication>

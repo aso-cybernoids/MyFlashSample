@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+               xmlns:s="library://ns.adobe.com/flex/spark" 
+               xmlns:mx="library://ns.adobe.com/flex/mx"
+			   applicationComplete="init()">
+	<fx:Script>
+		<![CDATA[
+		import flash.filesystem.File;
+		import mx.collections.XMLListCollection;
+		private var xml:XML =<avatar_data/>;
+		
+		public function createDir(files:Array):XMLList
+		{
+			var ret:XMLList = new XMLList;
+			if (files.length==0) 
+			{
+				ret[0]=<none/>
+				ret[0].@label = " ";
+				return ret;
+			}
+			for (var i:int = 0; i < files.length; i++) 
+			{
+				var file:File = files[i];
+				
+				if (file.isDirectory) 
+				{
+					var tmp:XML=<{file.name}/>;
+					tmp.appendChild( createDir(file.getDirectoryListing()) );
+					ret[i] = tmp;
+					ret[i].@label = file.name;
+				}
+				else 
+				{
+					tmp=<{file.name}/>;
+					ret[i] = tmp;
+					ret[i].@label = file.name;
+				}
+			}
+			return ret;
+		}
+		public function init():void{
+			//var filePath:String = File.applicationDirectory;
+			//var file:File = new File(filePath);
+			trace(File.applicationDirectory.url);
+			var file:File = File.applicationDirectory;
+			
+			xml.appendChild(createDir(file.getDirectoryListing()));
+			
+			var tmp:XMLListCollection = new XMLListCollection(xml.children());
+			
+			tree.dataProvider = tmp;
+			
+		}
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<mx:Tree id="tree" width="100%" height="100%" labelField="@label"></mx:Tree>
+	
+</s:Application>

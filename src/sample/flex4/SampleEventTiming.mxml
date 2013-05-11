@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+               xmlns:s="library://ns.adobe.com/flex/spark" 
+               xmlns:mx="library://ns.adobe.com/flex/halo"
+			   preinitialize="trace('preinitialize');init()"
+			   initialize="trace('initialize')"
+			   creationComplete="trace('creationComplete')"
+			   applicationComplete="trace('applicationComplete')"
+			   
+			   
+			   >
+	<fx:Script>
+		<![CDATA[
+import flash.desktop.NativeApplication;
+import flash.events.InvokeEvent;
+import mx.controls.Alert;
+		
+		private function init():void {
+			//NativeApplication に登録
+			
+			NativeApplication.nativeApplication.addEventListener(InvokeEvent.INVOKE,function ():void 
+			{
+				trace("invoke");
+			});
+		}
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:layout>
+		<s:HorizontalLayout/>
+	</s:layout>
+	<s:VGroup id="grp1"
+		preinitialize="trace('preinitialize grp1')"
+		initialize="trace('initialize grp1')"
+		creationComplete="trace('creationComplete  grp1')"
+	>
+		<s:Button id="btn1"
+		   preinitialize="trace('preinitialize btn1')"
+		   initialize="trace('initialize btn1')"
+		   creationComplete="trace('creationComplete btn1')"/>
+		<s:Button id="btn2"
+		   preinitialize="trace('preinitialize btn2')"
+		   initialize="trace('initialize btn2')"
+		   creationComplete="trace('creationComplete btn2')"/>
+
+		
+	</s:VGroup>
+	<s:Button id="btn3"
+		preinitialize="trace('preinitialize btn3')"
+		initialize="trace('initialize btn3')"
+		creationComplete="trace('creationComplete btn3')"/>
+
+</s:Application>

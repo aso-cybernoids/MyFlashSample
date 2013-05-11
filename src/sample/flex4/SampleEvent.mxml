@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+               xmlns:s="library://ns.adobe.com/flex/spark" 
+               xmlns:mx="library://ns.adobe.com/flex/halo"
+			   preinitialize="onPreInit()"
+			   initialize="onInit()"
+			   creationComplete="onCreate()"
+			   applicationComplete="onAppComplete()"
+			   
+			   >
+	
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<fx:Script>
+		<![CDATA[
+		public function onPreInit():void 
+		{
+			trace("onPreInit");
+			trace(initialized);
+			trace(grp);
+		}
+
+		public function onInit():void 
+		{
+			trace("onInit");
+			trace(initialized);
+			trace(grp);
+		}
+		
+		public function onCreate():void 
+		{
+			trace("onCreate");
+			trace(initialized);
+			trace(grp);
+		}
+
+		public function onAppComplete():void 
+		{
+			trace("onAppComplete");
+			trace(initialized);
+			trace(grp);
+		}
+		
+		]]>
+	</fx:Script>
+	<s:Group id="grp"/>
+</s:Application>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+               xmlns:s="library://ns.adobe.com/flex/spark" 
+               xmlns:mx="library://ns.adobe.com/flex/mx"
+			   >
+    <fx:Script>
+        <![CDATA[
+            import mx.collections.ArrayCollection;
+            [Bindable]
+            private var d:ArrayCollection = new ArrayCollection([
+                {hoge:"hoge0", foo:"foo0", bar:["hoge1","hoge1_1"]},
+                {hoge:"hoge1", foo:"foo1", bar:["hoge2","hoge2_1"]},
+                {hoge:"hoge2", foo:"foo2", bar:["hoge3","hoge3_1"]}]);
+        ]]>
+    </fx:Script>
+
+    <mx:DataGrid y="10" dataProvider="{d}" x="10">
+        <mx:columns>
+            <mx:DataGridColumn headerText="列 1" dataField="hoge" itemRenderer="mx.controls.ComboBox"/>
+            <mx:DataGridColumn headerText="列 2" dataField="foo" itemRenderer="mx.controls.TextInput"/>
+            <mx:DataGridColumn headerText="列 3" dataField="bar" itemRenderer="sample.flex4.SampleItemRenderer"/>
+        </mx:columns>
+    </mx:DataGrid>
+</s:Application>

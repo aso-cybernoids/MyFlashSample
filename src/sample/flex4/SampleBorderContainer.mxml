@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+               xmlns:s="library://ns.adobe.com/flex/spark" 
+               xmlns:mx="library://ns.adobe.com/flex/halo">
+	
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<!--適当なレイアウト設定-->
+	<s:BorderContainer width="100%" height="100%" top="10" right="10" left="10" bottom="10">
+		<s:Label text="a1"/>
+		<s:Label text="a2"/>
+		<s:Label text="a3"/>
+		<s:Label text="a4"/>
+	</s:BorderContainer>
+	
+	<s:BorderContainer width="100" height="100" verticalCenter="0" horizontalCenter="0">
+		<s:layout>
+			<s:VerticalLayout/>
+		</s:layout>
+		<s:Label text="b1"/>
+		<s:Label text="b2"/>
+		<s:Label text="b3"/>
+		<s:Label text="b4"/>
+	</s:BorderContainer>
+	
+	<s:BorderContainer bottom="0">
+		<s:layout>
+			<s:HorizontalLayout/>
+		</s:layout>
+		<s:Label text="c1"/>
+		<s:Label text="c2"/>
+		<s:Label text="c3"/>
+		<s:Label text="c4"/>
+	</s:BorderContainer>
+</s:Application>

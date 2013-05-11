@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+               xmlns:s="library://ns.adobe.com/flex/spark" 
+               xmlns:mx="library://ns.adobe.com/flex/mx">
+	
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:layout>
+		<s:VerticalLayout/>
+	</s:layout>
+	<s:states>
+		<mx:State name="default" />
+		<mx:State name="aState" stateGroups="Group1"  />
+		<mx:State name="bState" stateGroups="Group1"  />
+		<mx:State name="cState" stateGroups="Group2"  />
+		<mx:State name="dState" stateGroups="Group1"  />
+	</s:states>
+
+	<mx:HBox>
+		<mx:Button click="currentState='aState'" />
+		<mx:Button click="currentState='bState'" />
+		<mx:Button click="currentState='cState'" />
+		<mx:Button click="currentState='dState'" />
+	</mx:HBox>
+	
+	<s:Button
+	
+		id            = "targetButton"
+		color.Group1  = "#990000"
+		color.Group2  = "#000099"
+		label.default = "default"
+		label.Group1  = "a, b, d  State"
+		label.Group2  = "c  State"
+	/>
+
+	<s:Button label="1" id="defaultButton" />
+	<s:Button label="2" id="aStateButton"  includeIn="aState, bState" />
+	<s:Button label="3" id="bStateButton"  excludeFrom="bState" />
+</s:Application>
