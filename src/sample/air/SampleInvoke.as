@@ -13,7 +13,7 @@ package sample.air
 		<fileType>
 		  <name>moc</name>
 		  <extension>moc</extension>
-		  <description>Live2D model data</description>
+		  <description>model data</description>
 		  <contentType>moc</contentType>
 		</fileType>
 	  </fileTypes>
